@@ -1,0 +1,26 @@
+#include <cstring>
+#include <fstream>
+#include <vector> 
+#include <algorithm>
+std::string nume="lgmax";
+std::ifstream fin(nume+".in");
+std::ofstream fout(nume+".out");
+std::vector<std::string>vs;
+bool cmp(std::string a,std::string b)
+{
+    return a.size()>b.size();
+}
+int main()
+{
+    std::string c;
+    std::string n;
+    getline(fin,n);
+    int nou=stoi(n);
+    for(int i=0;i<nou;i++){
+        getline(fin,c);
+        vs.push_back(c);
+    }
+    std::sort(vs.begin(),vs.end(),cmp);
+    fout<<vs[0];
+    return 0;
+}
